@@ -1,0 +1,26 @@
+<!--
+    Custom web component element <x-blink> as a replacement of <blink> element for modern browsers.
+
+    Author: ConcurrentHashMap <ConcurrentHashMap@arcor.de>
+    License: Licensed under MIT (https://github.com/ConcurrentHashMap/webcomponents-html-blink-tag/blob/master/LICENSE)
+-->
+<element name="x-blink">
+    <template>
+        <style>
+            .x-blink-hidden {
+                visibility: hidden;
+            }
+        </style>
+        <span id="xBlinkElement"><content></content></span>
+    </template>
+    <script>
+        Polymer({
+          ready: function() {
+            var elem = this.$.xBlinkElement;
+            setInterval(function() {
+                elem.classList.toggle('x-blink-hidden');
+            }, 500); 
+          },
+        });
+    </script>
+</element>
